@@ -1,0 +1,713 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+.nav-buttons{
+    margin-left: 65%;
+}
+
+*{
+    margin:0;
+    padding:0;
+
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+}
+
+button{
+    font-size: 0.9rem;
+    font-weight: 850;
+    outline: none;
+    border: none;
+    background-color: black;
+    color:white;
+    padding: 10px 30px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+button:hover{
+    background-color: rgb(26, 26, 250);
+}
+p{
+    font-size: 1.5rem;
+}
+h1{
+    font-size:2.5rem;
+    font-weight: 700;
+}
+
+h2{
+    font-size:1.9rem;
+    font-weight: 550;
+}
+
+h3{
+    font-size:1.5rem;
+    font-weight: 800;
+}
+
+h4{
+    font-size:1.1rem;
+    font-weight: 620;
+}
+
+h5{
+    font-size:1rem;
+    font-weight: 390;
+}
+
+.navbar{
+    font-size:14px;
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+    text-transform: uppercase;
+    font-weight: bold;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
+
+.navbar-light .navbar-nav .nav-link{
+    padding:0 10px;
+    color: #000;
+    transition: 0.3s ease;
+}
+.navbar-light .navbar-nav .nav-link
+.navbar i:hover,
+.navbar-light .navbar-nav .nav-link.active,
+.navbar i:hover
+{
+    color:gray;
+}
+
+.navbar i{
+    font-size: 1.2rem;
+    padding: 0 0.7px;
+    transition: 0.4s ease;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+/*Namestanja nav-bara za skrin od 1000px*/
+@media only screen and (max-width:1000px){
+
+    .nav-buttons{
+        margin: 15px;
+    }
+
+    .nav-buttons ul{
+        margin:1rem;
+        justify-content: flex-start;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .nav-buttons ul .fa-solid{
+        margin:  20px 5px 10px 20px;
+    }
+}
+/*Namestanje home slike za pomeranje sa scrollom*/
+#home{
+    background-image:url('../imgs/Bgskije.jpg');
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position-y:-20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-attachment: fixed;
+}
+
+
+#home span{
+    color:blue;
+}
+
+.single-product span{
+    font-size: 20px;
+}
+
+/*#novo .slike img{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}*/
+
+#novo .slike {
+    position:relative;
+}
+
+/*Namesta crni sloj na slici*/
+#novo .slike .details{
+    position:absolute;
+    bottom:0;
+    color: burlywood;
+    font-weight: bold;
+    transition: 0.4s ease;
+    opacity: 0.6;
+    background-color: #000;
+    width: 100%;
+    height: 100%;
+}
+/* samo prvi details (kod skija) test
+#novo .slike:nth-child(1) .details{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}*/
+
+/*Namestanje tekst za klasu novo*/
+#novo .slike .details{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+#novo .slike button{
+    font-size: 5rem;
+    font-weight: 850;
+    outline: none;
+    border: none;
+    background-color: black;
+    color:white;
+    padding: 10px 30px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+
+#novo .slike button:hover{
+
+    background-color:gray
+}
+
+
+.Star{
+    padding:10px 0;
+    color: #FFD700;     
+margin-bottom: 10px;
+}
+
+.Star i{
+    font-size:1.2rem;
+    color:goldenrod;
+}
+
+
+#banner{
+    background-image:url('../imgs/banner.jpg');
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position-y:-20px;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.footer-jedan img{
+
+    width: 100px;
+    height: 100px;
+
+}
+
+footer{
+background-color: #222222;
+}
+footer h5{
+color:#d8d8d8;
+font-weight: 700;
+font-size: 1.2rem;
+}
+
+footer .copyright a{
+color:#000;
+width: 40px;
+background-color: #fff;
+display: inline-block;
+text-align: center;
+line-height: 40px;
+border-radius: 50%;
+transition: 0.3s ease;
+margin: 0 5px;
+}
+
+footer .copyright a:hover{
+color:#fff;
+background-color: blue;
+}
+
+
+footer p{
+color:#999;
+font-size: 0.8rem;
+}
+
+footer img{
+width: 80%;
+justify-content: left;
+align-items: left;
+}
+
+
+.small-slika-group{
+    display:flex;
+    justify-content: space-between;
+}
+
+.small-slika-col{
+    flex-basis:200px;
+    cursor:pointer;
+}
+
+/*Nekad hoce nekad nece,proveriti sto?*/
+.single-product input{
+    width:50px;
+    height: 40px;
+    padding-left: 10px;
+    font-size: 16px;
+    margin-right:10px;
+}
+
+.single-product img{
+    width: 80%;
+}
+
+.kolica table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.kolica .info{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.kolica th{
+    text-align: left;
+    padding: 5px 10px;
+    color:#fff;
+    background-color: rgb(27, 27, 241);
+}
+
+/*Padding za tabelu za ulepsanvanje*/
+.kolica td{
+    padding: 10px 20px;
+}
+
+.kolica td img{
+width: 80px;
+height: 80px;
+margin-right: 10px;
+}
+
+/*slobodno moze i manje*/
+.kolica td input{
+    width: 40px;
+    height: 30px;
+    padding: 5px;
+}
+
+.kolica .edit-btn{
+    color: blue;
+    font-size: 16px;
+    background-color: none;
+    border: none;
+    
+
+}
+
+.kolica .remove-btn{
+    color: blue;
+    font-size: 16px;
+    background-color: none;
+    border: none;
+    width: 75px;
+}
+
+/*Smanjenje margine*/
+.kolica .info p{
+    margin:3px;
+}
+
+/*Stavlja tabelu kolica-total desno*/
+.kolica-total{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.kolica-total table{
+    width: 100%;
+    max-width: 500px;
+    border-top: 3px solid #0000FF;
+}
+/*Stavljanje subtotal i cene skroz desno radi lepseg izgleda. Zbog toga je last child*/
+td:last-child{
+    text-align: right;
+}
+
+th:last-child{
+    text-align: right;
+}
+
+.kupi-kontejner{
+    display: flex;
+    justify-content: flex-end;
+}
+.kupi-btn{
+    display: flex;
+    justify-content: flex-end;
+    background-color: #0000FF;
+    color: #fff;
+    width: 100px;
+}
+
+
+#login-forma{
+    width: 50%;
+    margin: 10px auto;
+    text-align: center;
+}
+
+#login-forma #btn-login{
+    background-color: #0000FF;
+    color: #fff;
+}
+
+#login-forma input[type=text],input[type=password]{
+
+        width:300px;
+        height: 40px;
+        padding-left: 10px;
+        font-size: 16px;
+        margin-right:10px;
+    
+}
+
+#register-forma input[type=text],input[type=password]{
+    margin-bottom:15px;
+    width:300px;
+    height: 40px;
+    padding-left: 10px;
+    font-size: 16px;
+    margin-right:10px;
+}
+
+#register-forma #btn-register{
+    background-color: #0000FF;
+    color: #fff;
+}
+
+#sifra-form #btn-change{
+    background-color: #0000FF;
+    color: #fff;
+}
+
+#checkout-forma .checkout-element{
+    display: inline-block;
+    width: 100%;
+    margin:10px;
+}
+
+#checkout-forma #btn-checkout{
+    background-color: #0000FF;
+    color: #fff;
+}
+
+#checkout-forma{
+    width: 50%;
+    margin:  5px auto;
+    text-align: center;
+    padding: 10px;
+}
+
+#checkout-forma input[type=text]{
+    width:300px;
+    height: 40px;
+    padding-left: 10px;
+    font-size: 16px;
+    margin-right:10px;
+}
+
+#checkout-forma p{
+    font-size:1rem;
+    font-weight: 550;
+}
+
+.proizvod table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.proizvod .proizvod-info{
+    display:flex;
+    flex-wrap: wrap;
+}
+
+.proizvod th{
+    padding: 5px 10px;
+    color:#fff;
+    background-color: #0000FF;
+}
+
+.proizvod .proizvod-detalji-btn{
+    background-color: #0000FF;
+    color: #fff;
+}
+
+.proizvod td{
+    padding:10px 20px;
+}
+
+.proizvod td img{
+    width: 80px;
+    height: 80px;
+    margin-right: 10px;
+}
+
+#featured-shop{
+    margin-left: 268px;
+}
+
+#trazi{
+    float:left;
+}
+/*Admin sidebar css*/
+#sidebar {
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: #343a40;
+    color: white;
+    width: 250px;
+    padding: 20px 0;
+}
+#sidebar a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px 20px;
+}
+#sidebar a:hover {
+    background-color: #495057;
+}
+#content {
+    margin-left: 250px;
+    padding: 20px;
+}
+
+/*Edit button u adminEditu*/
+.btn_update{
+    background-color: #0000FF;
+}
+
+/*kontat strana*/
+
+.kontakt-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top:20px;
+    padding: 100px;
+}
+
+
+.kontakt-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.info-box {
+    flex: 1 1 calc(33.333% - 20px);
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+}
+
+.info-box i {
+    font-size: 40px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.info-box h3 {
+    margin: 10px 0;
+    color: #333;
+}
+
+.kontakt-form {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.kontakt-grupa {
+    margin-bottom: 15px;
+}
+
+.kontakt-grupa label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.kontakt-grupa input, .kontakt-grupa textarea, .kontakt-grupa select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.kontakt-grupa textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.kontakt-grupa select {
+    background-color: #fff;
+}
+
+
+.map {
+    margin-top: 40px;
+    text-align: center;
+}
+
+iframe {
+    width: 100%;
+    height: 400px;
+    border: none;
+    border-radius: 8px;
+}
+
+.pagination a {
+ color: #007bff;
+text-decoration: none;
+}
+.pagination li:hover a,
+.pagination .active a {
+color: #fff !important;
+background-color: #007bff !important;
+border-radius: 4px;
+}
+
+.proizvod{
+    cursor: pointer;
+    margin-bottom:2rem;
+}
+
+.proizvod img{
+    transition:0.3s all;;
+}
+
+.proizvod:hover img{
+
+    opacity: 0.7;
+}
+
+.proizvod .buy-btn{
+    background-color: blue;
+    transform: translateY(50px);
+    opacity: 0;
+    transition: 0.3s all;;
+}
+
+.proizvod:hover .buy-btn{
+    transform: translateY(0px);
+    opacity: 1;
+}
+.p-name {
+font-weight: 600;
+font-size: 1.1rem;
+margin-bottom: 8px;
+flex-grow: 1;
+}
+.p-price {
+font-weight: 700;
+color: #28a745;
+margin-bottom: 15px;
+font-size: 1.2rem;
+}
+.buy-btn {
+background-color: #007bff;
+border: none;
+color: white;
+padding: 8px 15px;
+border-radius: 4px;
+font-weight: 600;
+width: 100%;
+transition: background-color 0.3s ease;
+}
+.buy-btn:hover {
+background-color: #0056b3;
+color: white;
+text-decoration: none;
+}
+#trazi .form-check-label {
+cursor: pointer;
+}
+#trazi input[type="range"] {
+width: 100%;
+margin-bottom: 8px;
+}
+#cenaValue {
+font-weight: 700;
+}
+
+.shopproizvod {
+cursor: pointer;
+margin-bottom: 30px;
+border: 1px solid #eaeaea;
+border-radius: 6px;
+padding: 15px;
+transition: box-shadow 0.3s ease;
+background-color: #fff;
+height: 100%;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+}
+.shopproizvod:hover {
+box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+.shopproizvod img {
+max-height: 180px;
+object-fit: contain;
+margin-bottom: 15px;
+}
+
+.shopproizvod:hover img{
+
+    opacity: 0.7;
+}
+
+.shopproizvod .buy-btn{
+    background-color: #0000FF;
+    transform: translateY(25px);
+    opacity: 0;
+    transition: 0.3s all;
+}
+
+.shopproizvod:hover .buy-btn{
+    transform: translateY(0px);
+    opacity: 1;
+}
