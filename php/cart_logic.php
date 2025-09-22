@@ -47,25 +47,17 @@ if (isset($_POST['addcart_btn'])) {
     );
 
     //Proverava da li kolica postoje, ako da, da li je ta stvar vec u kolicima
-    if (isset($_SESSION['cart'])) {
-        $product_lista_id = array_column($_SESSION['cart'], "product_id");
-        if (!in_array($product_id, $product_lista_id)) {
-            $_SESSION['cart'][$product_id] = $product_lista;
-
-            $stmt->bind_param("i", $product_id);
-            $stmt->execute();
-            $stmt->close();
-        } else {
-            echo "<script>alert('Već je u korpi');</script>";
-        }
+if (isset($_SESSION['cart'])) {
+    $product_lista_id = array_column($_SESSION['cart'], "product_id");
+    if (!in_array($product_id, $product_lista_id)) {
+        $_SESSION['cart'][$product_id] = $product_lista;
+    } else {
+        echo "<script>alert('Već je u korpi');</script>";
+    }
     } else {
         //Pravi korpu ako korpa ne postoji
         $_SESSION['cart'][$product_id] = $product_lista;
 
-
-        $stmt->bind_param("i", $product_id);
-        $stmt->execute();
-        $stmt->close();
     }
 
     TotalCart();
