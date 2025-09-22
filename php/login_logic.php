@@ -12,7 +12,7 @@ if (isset($_POST['btn_login'])) {
     $email = $_POST['email'];
     $password = $_POST['sifra'];
 
-    // prvo pronalazi usera po emailu
+    //prvo pronalazi User-a po emailu
     $stmt = $conn->prepare("SELECT user_id, user_name, user_email, user_password 
                             FROM users 
                             WHERE user_email=? LIMIT 1");
@@ -25,7 +25,7 @@ if (isset($_POST['btn_login'])) {
         if ($stmt->num_rows() == 1) {
             $stmt->fetch();
 
-            // sada proverava hash
+            //Sada proverava hash
             if (password_verify($password, $hashed_password)) {
                 $_SESSION['user_id']    = $user_id;
                 $_SESSION['user_name']  = $user_name;

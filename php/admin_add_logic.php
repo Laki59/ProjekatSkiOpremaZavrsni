@@ -22,7 +22,7 @@ if ($row['admin'] !== 'da') {
 
 $upload_dir = 'assets/imgs/proizvod/';  // direktorijum za slike
 
-// POST: Dodavanje proizvoda
+//Dodavanje proizvoda
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $product_name = $_POST['product_name'];
     $product_description = $_POST['product_description'];
@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $product_color = $_POST['product_color'];
     $product_category = $_POST['product_category'];
 
-    // ✅ Engleski prevod (ako admin unese)
+    //Engleski prevod (ako admin unese)
     $product_name_en = isset($_POST['product_name_en']) ? $_POST['product_name_en'] : null;
     $product_description_en = isset($_POST['product_description_en']) ? $_POST['product_description_en'] : null;
 
@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $product_image3 = uploadImage('product_image3');
     $product_image4 = uploadImage('product_image4');
 
-    // Insert u products
+    //Insert u products
     $stmt = $conn->prepare("INSERT INTO products 
         (product_name, product_description, product_price, product_color, product_category, product_image, product_image2, product_image3, product_image4) 
         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
@@ -52,12 +52,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($stmt->execute()) {
         $product_id = $stmt->insert_id;
 
-        // ✅ Upis u product_translations za SR (default)
+        //Upis u product_translations za SR (default)
         $stmtT = $conn->prepare("INSERT INTO product_translations (product_id, lang, name, description) VALUES (?, 'rs', ?, ?)");
         $stmtT->bind_param("iss", $product_id, $product_name, $product_description);
         $stmtT->execute();
 
-        // ✅ Ako admin popuni engleski prevod
+        //Ako admin popuni engleski prevod
         if ($product_name_en && $product_description_en) {
             $stmtT2 = $conn->prepare("INSERT INTO product_translations (product_id, lang, name, description) VALUES (?, 'en', ?, ?)");
             $stmtT2->bind_param("iss", $product_id, $product_name_en, $product_description_en);
@@ -71,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 
-// Funkcija za upload slika
+//Funkcija za upload slika
 function uploadImage($input_name) {
     global $upload_dir;
 

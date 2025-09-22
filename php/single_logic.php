@@ -2,7 +2,7 @@
 session_start();
 include(__DIR__ . '/../server/connection.php');
 
-// Jezik iz cookie-a ili default
+//Jezik iz cookie-a ili default
 $lang = "rs";
 if (isset($_GET['lang'])) {
   $lang = $_GET['lang'];

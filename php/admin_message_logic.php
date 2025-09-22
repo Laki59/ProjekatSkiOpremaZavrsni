@@ -3,7 +3,7 @@ session_start();
 include('server/connection.php');
 include('server/all_messages.php');
 
-// Check login
+//Check login
 if (!isset($_SESSION['user_id'])) {
     header('Location: index.php');
     exit();
@@ -11,7 +11,7 @@ if (!isset($_SESSION['user_id'])) {
 
 $user_id = $_SESSION['user_id'];
 
-// Check admin
+//Check admin
 $stmt = $conn->prepare("SELECT * FROM users WHERE user_id = ?");
 $stmt->bind_param("i", $user_id);
 $stmt->execute();

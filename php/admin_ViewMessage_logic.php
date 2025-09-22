@@ -2,7 +2,7 @@
 session_start();
 include('server/connection.php');
 
-// Proverava login
+//Proverava login
 if (!isset($_SESSION['user_id'])) {
     header('Location: index.php');
     exit();
@@ -10,7 +10,7 @@ if (!isset($_SESSION['user_id'])) {
 
 $user_id = $_SESSION['user_id'];
 
-// Proverava admina
+//Proverava admina
 $stmt = $conn->prepare("SELECT * FROM users WHERE user_id = ?");
 $stmt->bind_param("i", $user_id);
 $stmt->execute();
@@ -22,7 +22,7 @@ if ($row['admin'] !== 'da') {
     exit();
 }
 
-// Uzima message ID
+//Uzima message ID
 if (!isset($_GET['message_id'])) {
     header('Location: adminMessages.php?error=Nema poruke');
     exit();
@@ -30,7 +30,7 @@ if (!isset($_GET['message_id'])) {
 
 $message_id = intval($_GET['message_id']);
 
-// Uzima poruke
+//Uzima poruke
 $stmt = $conn->prepare("SELECT m.*, u.user_name, u.user_email 
                         FROM message m 
                         JOIN users u ON m.user_id = u.user_id

@@ -1,7 +1,8 @@
 <?php
+session_start();
 include('server/connection.php');
 
-/*Proveravamo da li je dugme kliknuto i da li je proslednjen order id,ako jeste,prikazi sve stvari u tom orderu */
+//Proveravamo da li je dugme kliknuto i da li je proslednjen order id,ako jeste,prikazi sve stvari u tom orderu 
 if(isset($_POST['detalji-btn'])&& isset($_POST['order_id'])){
 
     $order_id=$_POST['order_id'];

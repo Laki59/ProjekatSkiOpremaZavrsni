@@ -22,14 +22,14 @@ if ($row['admin'] !== 'da') {
     exit();
 }
 
-// Brisanje korisnika i njegovih porudžbina
+//Brisanje korisnika i njegovih porudžbina
 if (isset($_POST['delete_btn'])) {
     $delete_user_id = intval($_POST['user_id']);
 
     $delete_user_query = "DELETE FROM users WHERE user_id = $delete_user_id";
     $delete_orders_query = "DELETE FROM orders WHERE user_id = $delete_user_id";
 
-    // Prvo brišemo porudžbine, zatim korisnika
+    //Prvo brišemo porudžbine zatim korisnika
     mysqli_query($conn, $delete_orders_query);
     mysqli_query($conn, $delete_user_query);
 

@@ -12,7 +12,7 @@ if (isset($_POST['addcart_btn'])) {
     $product_id = $_POST['product_id'];
     $new_type = $_POST['product_type']; 
 
-    // Provera dostupnosti proizvoda
+    //Provera dostupnosti proizvoda
     $stmt = $conn->prepare("SELECT quantity FROM products WHERE product_id = ?");
     $stmt->bind_param("i", $product_id);
     $stmt->execute();
@@ -26,7 +26,7 @@ if (isset($_POST['addcart_btn'])) {
     }
     
 
-    // Provera da li u korpi već postoji drugačiji tip proizvoda
+    //Provera da li u korpi već postoji drugačiji tip proizvoda
     if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
         $existing_types = array_unique(array_column($_SESSION['cart'], 'product_type'));
         if (count($existing_types) > 0 && $existing_types[0] !== $new_type) {
@@ -46,13 +46,12 @@ if (isset($_POST['addcart_btn'])) {
         'end_date' => $_POST['end_date'] ?? ''
     );
 
+    //Proverava da li kolica postoje, ako da, da li je ta stvar vec u kolicima
     if (isset($_SESSION['cart'])) {
         $product_lista_id = array_column($_SESSION['cart'], "product_id");
         if (!in_array($product_id, $product_lista_id)) {
             $_SESSION['cart'][$product_id] = $product_lista;
 
-            // Smanjujemo quantity za 1
-            $stmt = $conn->prepare("UPDATE products SET quantity = GREATEST(quantity , 0) WHERE product_id = ?");
             $stmt->bind_param("i", $product_id);
             $stmt->execute();
             $stmt->close();
@@ -60,10 +59,10 @@ if (isset($_POST['addcart_btn'])) {
             echo "<script>alert('Već je u korpi');</script>";
         }
     } else {
+        //Pravi korpu ako korpa ne postoji
         $_SESSION['cart'][$product_id] = $product_lista;
 
-        // Smanjujemo quantity za 1
-        $stmt = $conn->prepare("UPDATE products SET quantity = GREATEST(quantity , 0) WHERE product_id = ?");
+
         $stmt->bind_param("i", $product_id);
         $stmt->execute();
         $stmt->close();

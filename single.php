@@ -122,43 +122,20 @@ if (isset($_SESSION['logged_in'])) {
          name="start_date" 
          class="form-control w-50 mb-3" 
          min="<?php echo date('Y-m-d', strtotime('+1 day')); ?>" 
-         max="<?php echo date('Y-m-d', strtotime('+2 months')); ?>" />
+         max="<?php echo date('Y-m-d', strtotime('+2 months')); ?>" 
+         />
 
   <label for="end_date">Datum kraja:</label>
   <input type="date" 
          id="end_date"
          name="end_date" 
          class="form-control w-50 mb-3" 
-         disabled />
+         disabled 
+         />
 </div>
 
-<script>
-  const startDateInput = document.getElementById("start_date");
-  const endDateInput = document.getElementById("end_date");
-
-  startDateInput.addEventListener("change", function() {
-    if (this.value) {
-      let start = new Date(this.value);
-
-      // min = start date
-      let minEnd = new Date(start);
-      // max = start date + 8 days
-      let maxEnd = new Date(start);
-      maxEnd.setDate(maxEnd.getDate() + 8);
-
-      // formatiranje datuma u YYYY-MM-DD
-      const formatDate = (d) => d.toISOString().split('T')[0];
-
-      endDateInput.min = formatDate(minEnd);
-      endDateInput.max = formatDate(maxEnd);
-
-      endDateInput.disabled = false; // uključi polje
-      endDateInput.value = formatDate(minEnd); // podesi default na isti dan
-    }
-  });
-</script>
-
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="assets/js/datumi.js"></script>
 
         <button class="buy-btn" type="submit" name="addcart_btn" <?php if($quantity == 0) echo "disabled"; ?>><?=$Language["cartAdd"]?></button>
       </form>
@@ -197,13 +174,7 @@ if (isset($_SESSION['logged_in'])) {
 </section>
 
 <?php include 'footer.html'; ?>
-
 <script src="assets/js/slika.js"></script>
-<script>
-  document.getElementById('product_type_select').addEventListener('change', function() {
-    var rentalFields = document.getElementById('rental_dates');
-    rentalFields.style.display = this.value === 'rent' ? 'block' : 'none';
-  });
-</script>
+<script src="assets/js/prikazOpcija.js"></script>
 </body>
 </html>

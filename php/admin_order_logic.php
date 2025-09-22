@@ -10,7 +10,7 @@ if (!isset($_SESSION['user_id'])) {
 
 $user_id = $_SESSION['user_id'];
 
-// Check if admin
+//Check if admin
 $stmt = $conn->prepare("SELECT * FROM users WHERE user_id = ?");
 $stmt->bind_param("i", $user_id);
 $stmt->execute();
@@ -22,7 +22,7 @@ if ($row['admin'] !== 'da') {
     exit();
 }
 
-// Delete order
+//Delete order
 if (isset($_POST['delete_btn_order'])) {
     $order_id = intval($_POST['order_id']);
     $delete_query = "DELETE FROM orders WHERE order_id = $order_id";
@@ -37,7 +37,7 @@ if (isset($_POST['delete_btn_order'])) {
     exit();
 }
 
-// Search by order_id
+//Search by order_id
 $search = "";
 if (isset($_GET['search'])) {
     $search = trim($_GET['search']);

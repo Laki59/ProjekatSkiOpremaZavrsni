@@ -10,7 +10,7 @@ if (!isset($_SESSION['user_id'])) {
 
 $user_id = $_SESSION['user_id'];
 
-// Check if admin
+//Check admin
 $stmt = $conn->prepare("SELECT * FROM users WHERE user_id = ?");
 $stmt->bind_param("i", $user_id);
 $stmt->execute();
@@ -22,7 +22,7 @@ if ($row['admin'] !== 'da') {
     exit();
 }
 
-// Brisi proizvod
+//Brisi proizvod
 if (isset($_POST['delete_btn_order'])) {
     $product_id = intval($_POST['product_id']);
     $delete_query = "DELETE FROM products WHERE product_id = $product_id";
@@ -37,7 +37,7 @@ if (isset($_POST['delete_btn_order'])) {
     exit();
 }
 
-// Update kolicinu
+//Update kolicinu
 if (isset($_POST['update_quantity'])) {
     $product_id = intval($_POST['product_id']);
     $new_quantity = intval($_POST['new_quantity']);
@@ -55,7 +55,7 @@ if (isset($_POST['update_quantity'])) {
     exit();
 }
 
-// Trazi po ID-u
+//Trazi po ID-u
 $search = "";
 if (isset($_GET['search'])) {
     $search = trim($_GET['search']);

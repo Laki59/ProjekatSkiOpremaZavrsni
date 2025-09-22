@@ -12,7 +12,7 @@ if (isset($_POST['place_order_btn'])) {
     $user_id = $_SESSION['user_id'];
     $order_date = date('Y-m-d H:i:s');
 
-    // provera da li je renta ili kupovina
+    //Provera da li je renta ili kupovina
     $order_status = "Pouzecem"; 
     foreach ($_SESSION['cart'] as $item) {
         if (isset($item['product_type']) && $item['product_type'] === 'rent') {
@@ -21,7 +21,7 @@ if (isset($_POST['place_order_btn'])) {
         }
     }
 
-    // Insert order u orders tabelu
+    //Insert order u orders tabelu
     $stmt = $conn->prepare("INSERT INTO orders(order_cost, order_status, user_id, user_phone, user_city, user_address, order_date) 
                             VALUES (?, ?, ?, ?, ?, ?, ?)");
     $stmt->bind_param('isiisss', $order_cost, $order_status, $user_id, $phone, $city, $address, $order_date);
@@ -29,7 +29,7 @@ if (isset($_POST['place_order_btn'])) {
 
     $order_id = $stmt->insert_id;
 
-    // Insert iteme u order_items
+    //Insert iteme u order_items
     foreach ($_SESSION['cart'] as $key => $product) {
         $product_id = $product['product_id'];
         $product_name = $product['product_name'];
@@ -60,7 +60,7 @@ if (isset($_POST['place_order_btn'])) {
         );
         $stmt1->execute();
 
-        // Smanji stock u products tabeli samo sada 
+        //Smanji stock u products tabeli samo sada 
         if ($product_type === 'buy') {
             $stmt2 = $conn->prepare("UPDATE products SET quantity = quantity - ? WHERE product_id = ?");
             $stmt2->bind_param("ii", $product_quantity, $product_id);
@@ -68,7 +68,7 @@ if (isset($_POST['place_order_btn'])) {
         }
     }
 
-    // Isprazni korpu i preusmeri korisnika
+    //Isprazni korpu i preusmeri korisnika
     unset($_SESSION['cart']);
     header('Location: ../account.php?message=Narudžbina uspešno kreirana');
     exit();

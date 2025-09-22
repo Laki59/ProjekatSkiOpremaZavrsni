@@ -28,7 +28,7 @@
 <div class="form-groupa">
                 <label>Sifra</label><Br>
                 <input type="password" class="forma-kontrole" id="sifra-login" name="sifra" placeholder="Sifra" required/><br>
-                <input type="checkbox" onclick="myFunction()">Prikazi lozinku
+                <input type="checkbox" onclick="prikaziSifru()">Prikazi lozinku
 </div>
 <div class="form-groupa">
                 <br><input type="submit" class="btn" id="btn-login" name="btn_login" value="Login"/>
@@ -39,9 +39,11 @@
 </form>
     </div>
 </section>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="assets/js/passwordShow.js">
 </script>
 
 <?php include 'footer.html';?>
+
 </body>
 </html>

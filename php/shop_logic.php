@@ -2,7 +2,7 @@
 include(__DIR__ . '/../server/connection.php');
 session_start();
 
-// Uzimamo jezik iz GET ili cookie (default rs)
+//Uzimamo jezik iz GET ili cookie (default rs)
 $lang = "rs";
 if (isset($_GET['lang'])) {
   $lang = $_GET['lang'];
@@ -11,7 +11,7 @@ if (isset($_GET['lang'])) {
   $lang = $_COOKIE['lang'];
 }
 
-// Koliko proizvoda po strani
+//Koliko proizvoda po strani
 $total_records_per_page = 8; 
 
 $page_no = 1;
@@ -54,7 +54,7 @@ if (isset($_POST['search'])) {
     $stvari = $stmt->get_result();
 
 } else {
-    // 📌 Ako nije search gleda se stranica iz GET
+    //Ako nije search gleda se stranica iz GET
     if (isset($_GET['page_no']) && $_GET['page_no'] != "") {
         $page_no = (int)$_GET['page_no'];
         if ($page_no < 1) $page_no = 1;
@@ -62,7 +62,7 @@ if (isset($_POST['search'])) {
         $page_no = 1;
     }
 
-    // Ukupan broj proizvoda
+    //Ukupan broj proizvoda
     $stmt1 = $conn->prepare("SELECT COUNT(*) FROM products");
     $stmt1->execute();
     $stmt1->bind_result($total_records);

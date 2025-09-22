@@ -123,6 +123,6 @@
 </section>
 
 <?php include 'footer.html'; ?>
-<script src="assets/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
