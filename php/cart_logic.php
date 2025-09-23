@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['logged_in'])) {
-    header('location: index.php');
+    header('location: login.php');
     exit();
 }
 
@@ -34,7 +34,7 @@ if (isset($_POST['addcart_btn'])) {
             exit();
         }
     }
-
+    //Kreira proizvod koji ide u korpu
     $product_lista = array(
         'product_id' => $product_id,
         'product_name' => $_POST['product_name'],
