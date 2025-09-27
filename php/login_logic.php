@@ -35,10 +35,12 @@ if (isset($_POST['btn_login'])) {
                 header('Location: ../account.php?message=Uspesno logovanje');
                 exit;
             } else {
+                //Ako šifra nije tačna
                 header('Location: ../login.php?error=Netacan email ili sifra.');
                 exit;
             }
         } else {
+            //Ako email nije tačan
             header('Location: ../login.php?error=Netacan email ili sifra.');
             exit;
         }

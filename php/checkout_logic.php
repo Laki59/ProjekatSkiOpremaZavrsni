@@ -8,12 +8,4 @@ if (!empty($_SESSION['cart']) && isset($_POST['checkout'])) {
     exit();
 }
 
-//Provera da li je u korpi neka renta stvar
-$hasRental = false;
-foreach ($_SESSION['cart'] as $item) {
-    if (isset($item['item_type']) && $item['item_type'] == 'rent') {
-        $hasRental = true;
-        break;
-    }
-}
 ?>

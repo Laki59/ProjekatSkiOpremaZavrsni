@@ -28,30 +28,32 @@
         <label>Email</label><br>
         <input type="text" class="forma-kontrole" name="email" value="<?php echo $_SESSION['user_email']; ?>" required/>
       </div>
-      <div class="form-groupa text-center checkout-element">
-        <label>Broj telefona</label><br>
-        <input type="text" class="forma-kontrole" name="broj" required/>
-      </div>
-      <div class="form-groupa text-center checkout-element">
-        <label>Grad</label><br>
-        <input type="text" class="forma-kontrole" name="grad" required/>
-      </div>
-      <div class="form-groupa text-center checkout-element">
-        <label>Adresa</label><br>
-        <input type="text" class="forma-kontrole" name="adresa" required/>
-      </div>
+<div class="form-groupa text-center checkout-element">
+  <label>Broj telefona</label><br>
+  <input type="text" class="forma-kontrole" name="broj"
+         pattern="^[0-9]{7,15}$"
+         title="Unesite samo brojeve (7–15 cifara)"
+         required/>
+</div>
 
-      <?php if ($hasRental): ?>
-      <div class="form-groupa text-center checkout-element">
-        <label>Datum početka rentiranja</label><br>
-        <input type="date" class="forma-kontrole" name="start_date" required>
-      </div>
-      <div class="form-groupa text-center checkout-element">
-        <label>Datum kraja rentiranja</label><br>
-        <input type="date" class="forma-kontrole" name="end_date" required>
-      </div>
-      <?php endif; ?>
+<div class="form-groupa text-center checkout-element">
+  <label>Grad</label><br>
+  <input type="text" class="forma-kontrole" name="grad"
+         pattern="^[A-Za-zČĆŽŠĐčćžšđ\s]{2,20}$"
+         title="Unesite samo slova (2–20 karaktera)"
+         required/>
+</div>
 
+<div class="form-groupa text-center checkout-element">
+  <label>Adresa</label><br>
+  <input type="text" class="forma-kontrole" name="adresa"
+         pattern="^[A-Za-zČĆŽŠĐčćžšđ0-9\s]{5,20}$"
+         title="Unesite samo slova i brojeve (5–20 karaktera)"
+         required/>
+</div>
+
+
+  
       <div class="form-groupa text-center checkout-btn-container">
         <br>
         <input type="submit" class="btn" id="btn-checkout" name="place_order_btn" value="Kupi sada"/>
